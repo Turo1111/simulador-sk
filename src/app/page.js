@@ -9,6 +9,7 @@ import useCalidadPromedio from "@/hooks/useCalidadPromedio";
 import useNormalDistribution from "@/hooks/useNormalDistribution";
 import useNumeroPseudoAleatorio from "@/hooks/useNumeroPseudoAleatorio";
 import usePoissonDistribution from "@/hooks/usePoissonDistribution";
+import Head from "next/head";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";

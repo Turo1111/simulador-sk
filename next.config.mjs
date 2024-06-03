@@ -7,7 +7,7 @@ const nextConfig = {
         RED_ALERT: '#F7A4A4',
         GREEN_ALERT: '#B6E2A1',
         YELLOW_ALERT: '#EA906C'
-    },
+    }
 };
 
 export default nextConfig;
