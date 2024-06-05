@@ -25,7 +25,7 @@ export default function ResultadoSimulacion({salidas, handleModalReporte}) {
               width={80}
               height={80}
             />
-            <label style={{fontWeight: 500, margin: '15px 5px', fontSize: 18}}>{parseFloat(salidas?.cantidadCajasFinal).toFixed(2)} cajas </label>
+            <label style={{fontWeight: 500, margin: '15px 5px', fontSize: 18}}>{parseFloat(salidas?.cantidadCajas).toFixed(2)} cajas </label>
           </div>
           <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
             <Image

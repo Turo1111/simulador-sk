@@ -29,8 +29,25 @@ export default function Home() {
   const simularReciclado = useCallback(() => {
     setActiveAnimate(1)
     let u = getNextRandomNumber();
-    let mes = 1
-    let cartonUsado = 0 //carton que pasa la clasificacion
+    let dia = 1
+    let cartonRecolectado = 0
+    let cantidadCartonRecolectado = 0
+    let cartonDesechado = 0
+    let cvr = 0
+    let calidadMuyBuena = 0
+    let calidadBuena = 0
+    let calidadMedia = 0
+    let cantidadImpureza = 0
+    let fibraReciclada = 0
+    let arbolesPorTonelada = 0
+    let cantidadArbolesSalvados = 0
+    let cantidadRolloPapel = 0
+    let cantidadFibraVirgen = 0
+    let cantidadCajas = 0
+    let calidadPromedio = 3
+    let calidadMinima = 0
+    let calidadMaxima = 25
+    /* let cartonUsado = 0 //carton que pasa la clasificacion
     let cartonDesechado = 0  // carton no usado
     let calidadMuyBuena = 0 //contador
     let calidadBuena = 0 //contador
@@ -42,24 +59,23 @@ export default function Home() {
     let cantidadFibraVirgen = 0
     let cantidadCajasFinal = 0
     let calidadMinima = 0
-    let calidadMaxima = 25
+    let calidadMaxima = 25 */
     if (parseInt(calidadPromedio) === 2) {
       calidadMaxima = 12
     }
     if (parseInt(calidadPromedio) === 1) {
       calidadMaxima = 6
     }
-    while (mes <= dias) {
-      mes++;
-      let cartonReciclado = generatePoisson(666);
+    while (dia <= dias) {
       let c = 1;
-      toneladas+=cartonReciclado
-      while (c <= cartonReciclado) {
+      dia++;
+      cartonRecolectado = generatePoisson(666);
+      cantidadCartonRecolectado+=cartonRecolectado
+      while (c <= cartonRecolectado) {
         u = getNextRandomNumber();
         if (u<=0.8) {
-          cartonUsado++
           u = getNextRandomNumber();
-          let cvr = calidadMinima+calidadMaxima*u
+          cvr = calidadMinima+calidadMaxima*u
           if (cvr <= 6) {
             calidadMuyBuena++
           }
@@ -69,37 +85,41 @@ export default function Home() {
           if (cvr > 12 && cvr <= 25) {
             calidadMedia++
           }
+          u = getNextRandomNumber();
+          if (u<=0.12) {
+            cantidadImpureza++
+          }else{
+            fibraReciclada++
+            arbolesPorTonelada = generateNormal(18,1)
+            cantidadArbolesSalvados+=arbolesPorTonelada
+          }
         }
         else{
           cartonDesechado++
         }
         c++;
       }
-      let arbolesPorTonelada = generateNormal(18,1)
-      let arbolesSalvados = arbolesPorTonelada*cartonReciclado //cantidad de arboles salvados en este mes simulado
-      cantidadArbolesSalvados+=arbolesSalvados
-      let toneladasRolloPapel = (cartonReciclado*1)/(1.078) //cantidad de tonelladas de rollo de papel en este mes
-      cantidadRolloPapel+=toneladasRolloPapel
-      let toneladasImpureza = (cartonReciclado*0.318)/(1.078) //cantidad impurezas en mes simulado
-      cantidadImpureza+=toneladasImpureza
-      let toneladasFibraVirgen = (toneladasRolloPapel*0.24)/1 //cantidad de fibra virgen en mes simulado
-      cantidadFibraVirgen+=toneladasFibraVirgen
-      let cajasPorTonelada = generateNormal(2500,+-100) 
-      let cantidadCajas = (toneladasRolloPapel*cajasPorTonelada)/1 //cantidad de cajas en mes simulado
-      cantidadCajasFinal+=cantidadCajas
+    }
+    cantidadFibraVirgen=(fibraReciclada*0.24)/0.76
+    cantidadRolloPapel=cantidadFibraVirgen+fibraReciclada
+    let rp = 1
+    while (rp<=cantidadRolloPapel) {
+      let cajasPorTonelada = generateNormal(2500, 100)
+      cantidadCajas+=cajasPorTonelada
+      rp++
     }
     setSalidas({
-      cantidadArbolesSalvados: cantidadArbolesSalvados,
-      cantidadCajasFinal: cantidadCajasFinal,
-      cantidadRolloPapel: cantidadRolloPapel,
-      calidadBuena: calidadBuena,
-      calidadMuyBuena: calidadMuyBuena,
-      calidadMedia: calidadMedia,
-      cartonUsado :cartonUsado,
-      cartonDesechado: cartonDesechado,
-      toneladas: toneladas,
-      cantidadImpureza: cantidadImpureza,
-      cantidadFibraVirgen: cantidadFibraVirgen
+      cantidadCartonRecolectado : cantidadCartonRecolectado,
+      cartonDesechado : cartonDesechado,
+      calidadMuyBuena : calidadMuyBuena,
+      calidadBuena : calidadBuena,
+      calidadMedia : calidadMedia,
+      cantidadImpureza : cantidadImpureza,
+      fibraReciclada : fibraReciclada,
+      cantidadArbolesSalvados : cantidadArbolesSalvados,
+      cantidadRolloPapel : cantidadRolloPapel,
+      cantidadFibraVirgen : cantidadFibraVirgen,
+      cantidadCajas: cantidadCajas
     })
   }, [getNextRandomNumber, dias, calidadPromedio]);
 

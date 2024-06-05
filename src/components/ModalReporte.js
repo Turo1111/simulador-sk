@@ -14,7 +14,7 @@ export default function ModalReporte({open, handleClose, salidas}) {
                       width={50}
                       height={50}
                     />
-                    <span style={{fontWeight: 'bold', margin: '10px 15px'}}> Carton usado: </span> {salidas?.cartonUsado} toneladas
+                    <span style={{fontWeight: 'bold', margin: '10px 15px'}}> Fibra reciclada: </span> {salidas?.fibraReciclada} toneladas
                 </ItemLista>
                 <ItemLista>
                     <Image
@@ -54,7 +54,7 @@ export default function ModalReporte({open, handleClose, salidas}) {
                       width={50}
                       height={50}
                     />
-                    <span style={{fontWeight: 'bold', margin: '10px 15px'}}>Carton reciclado: </span> {salidas?.toneladas} toneladas
+                    <span style={{fontWeight: 'bold', margin: '10px 15px'}}>Carton recolectado: </span> {salidas?.cantidadCartonRecolectado} toneladas
                 </ItemLista>
                 <ItemLista>
                     <Image
@@ -94,7 +94,7 @@ export default function ModalReporte({open, handleClose, salidas}) {
                       width={50}
                       height={50}
                     />
-                    <span style={{fontWeight: 'bold', margin: '10px 15px'}}>Cajas fabricadas: </span> {parseFloat(salidas?.cantidadCajasFinal).toFixed(2)} cajas 
+                    <span style={{fontWeight: 'bold', margin: '10px 15px'}}>Cajas fabricadas: </span> {parseFloat(salidas?.cantidadCajas).toFixed(2)} cajas 
                 </ItemLista>
             </Lista>
         </div>
