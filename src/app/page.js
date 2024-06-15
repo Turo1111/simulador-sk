@@ -121,21 +121,21 @@ export default function Home() {
       </div>
       <div style={{display: "flex"}} >
         <div style={{backgroundColor: '#fff', borderRadius: 15, margin: '15px', padding: '0 15px'}} >
-          <h2 style={{textAlign: "center", margin: '15px 0', fontSize: 16, fontFamily: 'sans-serif'}} >Entradas</h2>
+          <h2 style={{textAlign: "center", margin: '15px 0', fontSize: 16}} >Entradas</h2>
           <div style={{display: "flex", alignItems: "center", minWidth: 250}}>
             <SliderComponent label={'Cantidad de dias'} initialValue={dias} min={1} max={365} onChange={(e)=>setDias(e)} />
-            <label style={{padding: 5, fontFamily: 'sans-serif'}} >{dias}</label>
+            <label style={{padding: 5}} >{dias}</label>
           </div>
           <div style={{display: "flex", alignItems: "center", minWidth: 250}}>
             <SliderComponent label={'Calidad promedio'} initialValue={calidadPromedio} min={1} max={3} onChange={(e)=>setCalidadPromedio(e)} />
-            <label style={{padding: 5, fontFamily: 'sans-serif'}} >
+            <label style={{padding: 5}} >
               {calidadPromedio}
             </label>
           </div>
           <div style={{display: "flex", justifyContent: "space-around" }} >
-            <label style={{padding: 2, fontSize: 12, fontFamily: 'sans-serif'}} >1 : Muy buena </label>
-            <label style={{padding: 2, fontSize: 12, fontFamily: 'sans-serif'}} >2 : Buena </label>
-            <label style={{padding: 2, fontSize: 12, fontFamily: 'sans-serif'}} >3 : Media </label>
+            <label style={{padding: 2, fontSize: 12}} >1 : Muy buena </label>
+            <label style={{padding: 2, fontSize: 12}} >2 : Buena </label>
+            <label style={{padding: 2, fontSize: 12}} >3 : Media </label>
           </div>
         </div>
        {/*  */}
