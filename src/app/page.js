@@ -47,19 +47,6 @@ export default function Home() {
     let calidadPromedio = 3
     let calidadMinima = 0
     let calidadMaxima = 25
-    /* let cartonUsado = 0 //carton que pasa la clasificacion
-    let cartonDesechado = 0  // carton no usado
-    let calidadMuyBuena = 0 //contador
-    let calidadBuena = 0 //contador
-    let calidadMedia = 0 //contador
-    let toneladas = 0 // contador de toneladas final simuladas
-    let cantidadArbolesSalvados = 0
-    let cantidadRolloPapel = 0
-    let cantidadImpureza = 0
-    let cantidadFibraVirgen = 0
-    let cantidadCajasFinal = 0
-    let calidadMinima = 0
-    let calidadMaxima = 25 */
     if (parseInt(calidadPromedio) === 2) {
       calidadMaxima = 12
     }
