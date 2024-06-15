@@ -13,6 +13,7 @@ const Container = styled.div`
 const Label = styled.label`
   font-size: 14px;
   margin-bottom: 1rem;
+  font-family: sans-serif;
 `;
 
 const SliderContainer = styled.div`
